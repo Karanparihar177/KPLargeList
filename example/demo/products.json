@@ -1,0 +1,602 @@
+[
+ {
+  "id": 1,
+  "title": "Essence Mascara Lash Princess",
+  "category": "beauty",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/thumbnail.webp"
+ },
+ {
+  "id": 2,
+  "title": "Eyeshadow Palette with Mirror",
+  "category": "beauty",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/beauty/eyeshadow-palette-with-mirror/thumbnail.webp"
+ },
+ {
+  "id": 3,
+  "title": "Powder Canister",
+  "category": "beauty",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/beauty/powder-canister/thumbnail.webp"
+ },
+ {
+  "id": 4,
+  "title": "Red Lipstick",
+  "category": "beauty",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/beauty/red-lipstick/thumbnail.webp"
+ },
+ {
+  "id": 5,
+  "title": "Red Nail Polish",
+  "category": "beauty",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/beauty/red-nail-polish/thumbnail.webp"
+ },
+ {
+  "id": 6,
+  "title": "Calvin Klein CK One",
+  "category": "fragrances",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/fragrances/calvin-klein-ck-one/thumbnail.webp"
+ },
+ {
+  "id": 7,
+  "title": "Chanel Coco Noir Eau De",
+  "category": "fragrances",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/fragrances/chanel-coco-noir-eau-de/thumbnail.webp"
+ },
+ {
+  "id": 8,
+  "title": "Dior J'adore",
+  "category": "fragrances",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/fragrances/dior-j'adore/thumbnail.webp"
+ },
+ {
+  "id": 9,
+  "title": "Dolce Shine Eau de",
+  "category": "fragrances",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/fragrances/dolce-shine-eau-de/thumbnail.webp"
+ },
+ {
+  "id": 10,
+  "title": "Gucci Bloom Eau de",
+  "category": "fragrances",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/fragrances/gucci-bloom-eau-de/thumbnail.webp"
+ },
+ {
+  "id": 11,
+  "title": "Annibale Colombo Bed",
+  "category": "furniture",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/furniture/annibale-colombo-bed/thumbnail.webp"
+ },
+ {
+  "id": 12,
+  "title": "Annibale Colombo Sofa",
+  "category": "furniture",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/furniture/annibale-colombo-sofa/thumbnail.webp"
+ },
+ {
+  "id": 13,
+  "title": "Bedside Table African Cherry",
+  "category": "furniture",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/furniture/bedside-table-african-cherry/thumbnail.webp"
+ },
+ {
+  "id": 14,
+  "title": "Knoll Saarinen Executive Conference Chair",
+  "category": "furniture",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/furniture/knoll-saarinen-executive-conference-chair/thumbnail.webp"
+ },
+ {
+  "id": 15,
+  "title": "Wooden Bathroom Sink With Mirror",
+  "category": "furniture",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/furniture/wooden-bathroom-sink-with-mirror/thumbnail.webp"
+ },
+ {
+  "id": 16,
+  "title": "Apple",
+  "category": "groceries",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/groceries/apple/thumbnail.webp"
+ },
+ {
+  "id": 17,
+  "title": "Beef Steak",
+  "category": "groceries",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/groceries/beef-steak/thumbnail.webp"
+ },
+ {
+  "id": 18,
+  "title": "Cat Food",
+  "category": "groceries",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/groceries/cat-food/thumbnail.webp"
+ },
+ {
+  "id": 19,
+  "title": "Chicken Meat",
+  "category": "groceries",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/groceries/chicken-meat/thumbnail.webp"
+ },
+ {
+  "id": 20,
+  "title": "Cooking Oil",
+  "category": "groceries",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/groceries/cooking-oil/thumbnail.webp"
+ },
+ {
+  "id": 21,
+  "title": "Cucumber",
+  "category": "groceries",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/groceries/cucumber/thumbnail.webp"
+ },
+ {
+  "id": 22,
+  "title": "Dog Food",
+  "category": "groceries",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/groceries/dog-food/thumbnail.webp"
+ },
+ {
+  "id": 23,
+  "title": "Eggs",
+  "category": "groceries",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/groceries/eggs/thumbnail.webp"
+ },
+ {
+  "id": 24,
+  "title": "Fish Steak",
+  "category": "groceries",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/groceries/fish-steak/thumbnail.webp"
+ },
+ {
+  "id": 25,
+  "title": "Green Bell Pepper",
+  "category": "groceries",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/groceries/green-bell-pepper/thumbnail.webp"
+ },
+ {
+  "id": 26,
+  "title": "Green Chili Pepper",
+  "category": "groceries",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/groceries/green-chili-pepper/thumbnail.webp"
+ },
+ {
+  "id": 27,
+  "title": "Honey Jar",
+  "category": "groceries",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/groceries/honey-jar/thumbnail.webp"
+ },
+ {
+  "id": 28,
+  "title": "Ice Cream",
+  "category": "groceries",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/groceries/ice-cream/thumbnail.webp"
+ },
+ {
+  "id": 29,
+  "title": "Juice",
+  "category": "groceries",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/groceries/juice/thumbnail.webp"
+ },
+ {
+  "id": 30,
+  "title": "Kiwi",
+  "category": "groceries",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/groceries/kiwi/thumbnail.webp"
+ },
+ {
+  "id": 31,
+  "title": "Lemon",
+  "category": "groceries",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/groceries/lemon/thumbnail.webp"
+ },
+ {
+  "id": 32,
+  "title": "Milk",
+  "category": "groceries",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/groceries/milk/thumbnail.webp"
+ },
+ {
+  "id": 33,
+  "title": "Mulberry",
+  "category": "groceries",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/groceries/mulberry/thumbnail.webp"
+ },
+ {
+  "id": 34,
+  "title": "Nescafe Coffee",
+  "category": "groceries",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/groceries/nescafe-coffee/thumbnail.webp"
+ },
+ {
+  "id": 35,
+  "title": "Potatoes",
+  "category": "groceries",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/groceries/potatoes/thumbnail.webp"
+ },
+ {
+  "id": 36,
+  "title": "Protein Powder",
+  "category": "groceries",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/groceries/protein-powder/thumbnail.webp"
+ },
+ {
+  "id": 37,
+  "title": "Red Onions",
+  "category": "groceries",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/groceries/red-onions/thumbnail.webp"
+ },
+ {
+  "id": 38,
+  "title": "Rice",
+  "category": "groceries",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/groceries/rice/thumbnail.webp"
+ },
+ {
+  "id": 39,
+  "title": "Soft Drinks",
+  "category": "groceries",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/groceries/soft-drinks/thumbnail.webp"
+ },
+ {
+  "id": 40,
+  "title": "Strawberry",
+  "category": "groceries",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/groceries/strawberry/thumbnail.webp"
+ },
+ {
+  "id": 41,
+  "title": "Tissue Paper Box",
+  "category": "groceries",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/groceries/tissue-paper-box/thumbnail.webp"
+ },
+ {
+  "id": 42,
+  "title": "Water",
+  "category": "groceries",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/groceries/water/thumbnail.webp"
+ },
+ {
+  "id": 43,
+  "title": "Decoration Swing",
+  "category": "home-decoration",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/home-decoration/decoration-swing/thumbnail.webp"
+ },
+ {
+  "id": 44,
+  "title": "Family Tree Photo Frame",
+  "category": "home-decoration",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/home-decoration/family-tree-photo-frame/thumbnail.webp"
+ },
+ {
+  "id": 45,
+  "title": "House Showpiece Plant",
+  "category": "home-decoration",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/home-decoration/house-showpiece-plant/thumbnail.webp"
+ },
+ {
+  "id": 46,
+  "title": "Plant Pot",
+  "category": "home-decoration",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/home-decoration/plant-pot/thumbnail.webp"
+ },
+ {
+  "id": 47,
+  "title": "Table Lamp",
+  "category": "home-decoration",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/home-decoration/table-lamp/thumbnail.webp"
+ },
+ {
+  "id": 48,
+  "title": "Bamboo Spatula",
+  "category": "kitchen-accessories",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/kitchen-accessories/bamboo-spatula/thumbnail.webp"
+ },
+ {
+  "id": 49,
+  "title": "Black Aluminium Cup",
+  "category": "kitchen-accessories",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/kitchen-accessories/black-aluminium-cup/thumbnail.webp"
+ },
+ {
+  "id": 50,
+  "title": "Black Whisk",
+  "category": "kitchen-accessories",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/kitchen-accessories/black-whisk/thumbnail.webp"
+ },
+ {
+  "id": 51,
+  "title": "Boxed Blender",
+  "category": "kitchen-accessories",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/kitchen-accessories/boxed-blender/thumbnail.webp"
+ },
+ {
+  "id": 52,
+  "title": "Carbon Steel Wok",
+  "category": "kitchen-accessories",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/kitchen-accessories/carbon-steel-wok/thumbnail.webp"
+ },
+ {
+  "id": 53,
+  "title": "Chopping Board",
+  "category": "kitchen-accessories",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/kitchen-accessories/chopping-board/thumbnail.webp"
+ },
+ {
+  "id": 54,
+  "title": "Citrus Squeezer Yellow",
+  "category": "kitchen-accessories",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/kitchen-accessories/citrus-squeezer-yellow/thumbnail.webp"
+ },
+ {
+  "id": 55,
+  "title": "Egg Slicer",
+  "category": "kitchen-accessories",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/kitchen-accessories/egg-slicer/thumbnail.webp"
+ },
+ {
+  "id": 56,
+  "title": "Electric Stove",
+  "category": "kitchen-accessories",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/kitchen-accessories/electric-stove/thumbnail.webp"
+ },
+ {
+  "id": 57,
+  "title": "Fine Mesh Strainer",
+  "category": "kitchen-accessories",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/kitchen-accessories/fine-mesh-strainer/thumbnail.webp"
+ },
+ {
+  "id": 58,
+  "title": "Fork",
+  "category": "kitchen-accessories",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/kitchen-accessories/fork/thumbnail.webp"
+ },
+ {
+  "id": 59,
+  "title": "Glass",
+  "category": "kitchen-accessories",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/kitchen-accessories/glass/thumbnail.webp"
+ },
+ {
+  "id": 60,
+  "title": "Grater Black",
+  "category": "kitchen-accessories",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/kitchen-accessories/grater-black/thumbnail.webp"
+ },
+ {
+  "id": 61,
+  "title": "Hand Blender",
+  "category": "kitchen-accessories",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/kitchen-accessories/hand-blender/thumbnail.webp"
+ },
+ {
+  "id": 62,
+  "title": "Ice Cube Tray",
+  "category": "kitchen-accessories",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/kitchen-accessories/ice-cube-tray/thumbnail.webp"
+ },
+ {
+  "id": 63,
+  "title": "Kitchen Sieve",
+  "category": "kitchen-accessories",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/kitchen-accessories/kitchen-sieve/thumbnail.webp"
+ },
+ {
+  "id": 64,
+  "title": "Knife",
+  "category": "kitchen-accessories",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/kitchen-accessories/knife/thumbnail.webp"
+ },
+ {
+  "id": 65,
+  "title": "Lunch Box",
+  "category": "kitchen-accessories",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/kitchen-accessories/lunch-box/thumbnail.webp"
+ },
+ {
+  "id": 66,
+  "title": "Microwave Oven",
+  "category": "kitchen-accessories",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/kitchen-accessories/microwave-oven/thumbnail.webp"
+ },
+ {
+  "id": 67,
+  "title": "Mug Tree Stand",
+  "category": "kitchen-accessories",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/kitchen-accessories/mug-tree-stand/thumbnail.webp"
+ },
+ {
+  "id": 68,
+  "title": "Pan",
+  "category": "kitchen-accessories",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/kitchen-accessories/pan/thumbnail.webp"
+ },
+ {
+  "id": 69,
+  "title": "Plate",
+  "category": "kitchen-accessories",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/kitchen-accessories/plate/thumbnail.webp"
+ },
+ {
+  "id": 70,
+  "title": "Red Tongs",
+  "category": "kitchen-accessories",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/kitchen-accessories/red-tongs/thumbnail.webp"
+ },
+ {
+  "id": 71,
+  "title": "Silver Pot With Glass Cap",
+  "category": "kitchen-accessories",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/kitchen-accessories/silver-pot-with-glass-cap/thumbnail.webp"
+ },
+ {
+  "id": 72,
+  "title": "Slotted Turner",
+  "category": "kitchen-accessories",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/kitchen-accessories/slotted-turner/thumbnail.webp"
+ },
+ {
+  "id": 73,
+  "title": "Spice Rack",
+  "category": "kitchen-accessories",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/kitchen-accessories/spice-rack/thumbnail.webp"
+ },
+ {
+  "id": 74,
+  "title": "Spoon",
+  "category": "kitchen-accessories",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/kitchen-accessories/spoon/thumbnail.webp"
+ },
+ {
+  "id": 75,
+  "title": "Tray",
+  "category": "kitchen-accessories",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/kitchen-accessories/tray/thumbnail.webp"
+ },
+ {
+  "id": 76,
+  "title": "Wooden Rolling Pin",
+  "category": "kitchen-accessories",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/kitchen-accessories/wooden-rolling-pin/thumbnail.webp"
+ },
+ {
+  "id": 77,
+  "title": "Yellow Peeler",
+  "category": "kitchen-accessories",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/kitchen-accessories/yellow-peeler/thumbnail.webp"
+ },
+ {
+  "id": 78,
+  "title": "Apple MacBook Pro 14 Inch Space Grey",
+  "category": "laptops",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/laptops/apple-macbook-pro-14-inch-space-grey/thumbnail.webp"
+ },
+ {
+  "id": 79,
+  "title": "Asus Zenbook Pro Dual Screen Laptop",
+  "category": "laptops",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/laptops/asus-zenbook-pro-dual-screen-laptop/thumbnail.webp"
+ },
+ {
+  "id": 80,
+  "title": "Huawei Matebook X Pro",
+  "category": "laptops",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/laptops/huawei-matebook-x-pro/thumbnail.webp"
+ },
+ {
+  "id": 81,
+  "title": "Lenovo Yoga 920",
+  "category": "laptops",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/laptops/lenovo-yoga-920/thumbnail.webp"
+ },
+ {
+  "id": 82,
+  "title": "New DELL XPS 13 9300 Laptop",
+  "category": "laptops",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/laptops/new-dell-xps-13-9300-laptop/thumbnail.webp"
+ },
+ {
+  "id": 83,
+  "title": "Blue & Black Check Shirt",
+  "category": "mens-shirts",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/mens-shirts/blue-&-black-check-shirt/thumbnail.webp"
+ },
+ {
+  "id": 84,
+  "title": "Gigabyte Aorus Men Tshirt",
+  "category": "mens-shirts",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/mens-shirts/gigabyte-aorus-men-tshirt/thumbnail.webp"
+ },
+ {
+  "id": 85,
+  "title": "Man Plaid Shirt",
+  "category": "mens-shirts",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/mens-shirts/man-plaid-shirt/thumbnail.webp"
+ },
+ {
+  "id": 86,
+  "title": "Man Short Sleeve Shirt",
+  "category": "mens-shirts",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/mens-shirts/man-short-sleeve-shirt/thumbnail.webp"
+ },
+ {
+  "id": 87,
+  "title": "Men Check Shirt",
+  "category": "mens-shirts",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/mens-shirts/men-check-shirt/thumbnail.webp"
+ },
+ {
+  "id": 88,
+  "title": "Nike Air Jordan 1 Red And Black",
+  "category": "mens-shoes",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/mens-shoes/nike-air-jordan-1-red-and-black/thumbnail.webp"
+ },
+ {
+  "id": 89,
+  "title": "Nike Baseball Cleats",
+  "category": "mens-shoes",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/mens-shoes/nike-baseball-cleats/thumbnail.webp"
+ },
+ {
+  "id": 90,
+  "title": "Puma Future Rider Trainers",
+  "category": "mens-shoes",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/mens-shoes/puma-future-rider-trainers/thumbnail.webp"
+ },
+ {
+  "id": 91,
+  "title": "Sports Sneakers Off White & Red",
+  "category": "mens-shoes",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/mens-shoes/sports-sneakers-off-white-&-red/thumbnail.webp"
+ },
+ {
+  "id": 92,
+  "title": "Sports Sneakers Off White Red",
+  "category": "mens-shoes",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/mens-shoes/sports-sneakers-off-white-red/thumbnail.webp"
+ },
+ {
+  "id": 93,
+  "title": "Brown Leather Belt Watch",
+  "category": "mens-watches",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/mens-watches/brown-leather-belt-watch/thumbnail.webp"
+ },
+ {
+  "id": 94,
+  "title": "Longines Master Collection",
+  "category": "mens-watches",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/mens-watches/longines-master-collection/thumbnail.webp"
+ },
+ {
+  "id": 95,
+  "title": "Rolex Cellini Date Black Dial",
+  "category": "mens-watches",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/mens-watches/rolex-cellini-date-black-dial/thumbnail.webp"
+ },
+ {
+  "id": 96,
+  "title": "Rolex Cellini Moonphase",
+  "category": "mens-watches",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/mens-watches/rolex-cellini-moonphase/thumbnail.webp"
+ },
+ {
+  "id": 97,
+  "title": "Rolex Datejust",
+  "category": "mens-watches",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/mens-watches/rolex-datejust/thumbnail.webp"
+ },
+ {
+  "id": 98,
+  "title": "Rolex Submariner Watch",
+  "category": "mens-watches",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/mens-watches/rolex-submariner-watch/thumbnail.webp"
+ },
+ {
+  "id": 99,
+  "title": "Amazon Echo Plus",
+  "category": "mobile-accessories",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/mobile-accessories/amazon-echo-plus/thumbnail.webp"
+ },
+ {
+  "id": 100,
+  "title": "Apple Airpods",
+  "category": "mobile-accessories",
+  "thumbnail": "https://cdn.dummyjson.com/product-images/mobile-accessories/apple-airpods/thumbnail.webp"
+ }
+]

@@ -8,6 +8,11 @@ apply plugin: "com.facebook.react"
  */
 react {
     /* Folders */
+    // Yarn workspaces hoist dependencies to the repo root (one level above example/).
+    reactNativeDir = file("../../../node_modules/react-native")
+    codegenDir = file("../../../node_modules/@react-native/codegen")
+    cliFile = file("../../../node_modules/react-native/cli.js")
+    hermesCommand = "$rootDir/../../node_modules/hermes-compiler/hermesc/%OS-BIN%/hermesc"
     //   The root of your project, i.e. where "package.json" lives. Default is '../..'
     // root = file("../../")
     //   The folder where the react-native NPM package is. Default is ../../node_modules/react-native

@@ -1,97 +1,167 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# kp-large-list
 
-# Getting Started
+A generic, high-performance list and grid for React Native. `KPLargeList` is built on [FlashList v2](https://shopify.github.io/flash-list/) for virtualization and cell recycling. `KPImage` adds native image caching with a skeleton and a fallback. Items can be any type, and layouts are fully provided by you.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+## Requirements
 
-## Step 1: Start Metro
+| | Supported |
+|---|---|
+| React Native | 0.83+ (developed on 0.88) |
+| New Architecture | Required |
+| React | 19+ |
+| `@shopify/flash-list` | 2.x |
+| `react-native-fast-image` | 10.x (pin an exact version, the library is young) |
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
-
-To start the Metro dev server, run the following command from the root of your React Native project:
-
-```sh
-# Using npm
-npm start
-
-# OR using Yarn
-yarn start
-```
-
-## Step 2: Build and run your app
-
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
-
-### Android
+## Install
 
 ```sh
-# Using npm
-npm run android
-
-# OR using Yarn
-yarn android
+yarn add kp-large-list @shopify/flash-list react-native-fast-image
+cd ios && bundle exec pod install
 ```
 
-### iOS
+Use `yarn add git+ssh://git@github.com/<org>/kp-large-list.git#v0.1.0` until the package is on npm.
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
+Both native dependencies autolink. The image backend lives in one file, `src/adapters/FastImageAdapter.tsx`, so it can be replaced without changing the public API.
 
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
+**iOS note:** SDWebImage, a dependency of FastImage, declares iOS 9, which current Xcode rejects. If the build fails with "deployment target 9.0", add this to your Podfile's `post_install`:
+
+```ruby
+min_ios = Pod::Config.instance.podfile.target_definitions['YourTarget'].platform.deployment_target.to_s.to_f
+installer.pods_project.targets.each do |target|
+  target.build_configurations.each do |bc|
+    bc.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = min_ios.to_s if bc.build_settings['IPHONEOS_DEPLOYMENT_TARGET'].to_f < min_ios
+  end
+end
+```
+
+## Usage
+
+`KPLargeList` is generic. The item type comes from `data`, so any shape works.
+
+```tsx
+import {KPImage, KPLargeList} from 'kp-large-list';
+
+interface Article {
+  id: string;
+  headline: string;
+  author: string;
+  coverUrl: string;
+  readMinutes: number;
+}
+
+<KPLargeList<Article>
+  data={articles}
+  numColumns={2}
+  columnGap={8}
+  rowGap={8}
+  keyExtractor={article => article.id}
+  renderItem={(article, index, {width}) => (
+    <ArticleCard article={article} width={width} />
+  )}
+  onItemPress={article => openArticle(article.id)}
+  loading={isLoading}
+  error={error}
+  renderError={err => <ErrorView error={err} />}
+  ListEmptyComponent={<EmptyState />}
+/>
+```
+
+Your own components go inside `renderItem`. Each cell gets the item, its index, and the layout (`width`, `columnIndex`, `numColumns`), so you can lay out a card however you like:
+
+```tsx
+function ArticleCard({article, width}: {article: Article; width: number}) {
+  return (
+    <View style={{width}}>
+      <KPImage
+        source={{uri: article.coverUrl}}
+        aspectRatio={16 / 9}
+        fallback={<Placeholder />}
+      />
+      <Text>{article.headline}</Text>
+      <Text>{article.author} · {article.readMinutes} min</Text>
+    </View>
+  );
+}
+```
+
+Custom skeletons, empty states and error states are also render props. Pass a component or an element, whichever fits:
+
+```tsx
+<KPLargeList
+  data={[]}
+  loading
+  skeletonCount={6}
+  renderSkeleton={(index, layout) => <ArticleSkeleton width={layout.width} />}
+  keyExtractor={a => a.id}
+  renderItem={a => <ArticleCard article={a} width={0} />}
+/>
+```
+
+## `KPLargeList` props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `data` | `readonly T[]` | required | Items to render. |
+| `keyExtractor` | `(item, index) => string` | required | Stable, unique key per item. |
+| `renderItem` | `(item, index, layout) => ReactElement` | required | Renders one cell. `layout` is `{width, columnIndex, numColumns}`. |
+| `numColumns` | `number` | `1` | Columns in the grid. |
+| `columnGap` | `number` | `0` | Horizontal space between columns. |
+| `rowGap` | `number` | `0` | Vertical space between rows. |
+| `itemAspectRatio` | `number` | | Forces width ÷ height on every cell. Omit to let content set the height. |
+| `onItemPress` | `(item, index) => void` | | Makes each cell pressable. |
+| `onItemVisibilityChange` | `(item, index, isVisible) => void` | | Fires as items enter or leave the viewport. |
+| `getItemType` | `(item, index) => string \| number` | | Groups cells that look alike, so FlashList can recycle them better. |
+| `drawDistance` | `number` | `1200` | Pixels beyond the viewport that are pre-rendered. |
+| `loading` | `boolean` | `false` | Shows skeleton cells instead of `data`. |
+| `skeletonCount` | `number` | `numColumns × 3` | Number of skeleton cells while loading. |
+| `renderSkeleton` | `(index, layout) => ReactElement` | `KPSkeleton` | Custom skeleton cell. |
+| `error` | `unknown` | | Shown only when `data` is empty. |
+| `renderError` | `(error) => ReactElement \| null` | | Renders the error state. |
+| `ListEmptyComponent` | `ReactElement \| null` | | Shown when `data` is empty and there is no error. |
+| `style` / `contentContainerStyle` | `StyleProp<ViewStyle>` | | Styling for the list and its content. |
+| `testID` | `string` | | Test identifier. |
+| `listProps` | FlashList props | | Passed through to FlashList: pull-to-refresh, `onEndReached`, headers and footers, and so on. Owned props are excluded from the type. |
+
+## `KPImage` props
+
+| Prop | Type | Description |
+|---|---|---|
+| `source` | `{uri, headers?} \| number \| null` | Remote or bundled image. `null` shows `fallback`. |
+| `aspectRatio` | `number` | Reserves space before the image loads. |
+| `resizeMode` | `'cover' \| 'contain' \| 'stretch' \| 'center'` | Default `'cover'`. |
+| `placeholder` | `ReactElement \| null` | Shown while loading. Defaults to `KPSkeleton`. `null` shows nothing. |
+| `fallback` | `ReactElement \| null` | Shown when the source is missing or fails to load. |
+| `onLoad` / `onError` | callbacks | Called with the image size or the error message. |
+
+Format is decided by the native decoder, not by the URL extension. Loading and error state are tied to the source, so a recycled cell that receives a new image starts in the loading state and ignores late events from the previous one.
+
+`KPSkeleton` is also exported, so you can use it on its own.
+
+## Behaviour notes
+
+- Cells hold no state of their own. FlashList controls mounting, recycling and measuring.
+- Recycling does not cancel in-flight network requests. The native image backend decides that.
+- Keep `renderItem`, `keyExtractor` and `onItemPress` stable (`useCallback`). Cells are memoized and re-render only when their inputs change.
+- Masonry, prefetching and pagination helpers are not included. Pagination works through `listProps.onEndReached`.
+
+## Development
 
 ```sh
-bundle install
+yarn install
+yarn typecheck
+yarn lint
+yarn test
+yarn build          # writes lib/ (ES modules + .d.ts)
 ```
 
-Then, and every time you update your native dependencies, run:
+The `example/` app imports the library source directly through Metro. It is a development harness and is not part of the published package.
 
 ```sh
-bundle exec pod install
+yarn example:start
+yarn example:ios
+yarn example:android
 ```
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
+## Versioning
 
-```sh
-# Using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
-```
-
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
-
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
-
-## Step 3: Modify your app
-
-Now that you have successfully run the app, let's make changes!
-
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
-
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
-
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+Semantic versioning. Changes are listed in [CHANGELOG.md](CHANGELOG.md).

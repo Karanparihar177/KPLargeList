@@ -1,0 +1,8 @@
+{
+  "extends": "@react-native/typescript-config",
+  "compilerOptions": {
+    "paths": {"kp-large-list": ["../src"]}
+  },
+  "include": ["**/*.ts", "**/*.tsx", "../src"],
+  "exclude": ["**/node_modules", "**/Pods"]
+}

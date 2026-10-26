@@ -42,11 +42,7 @@ export interface KPLargeListProps<T> {
 
   onItemPress?: (item: T, index: number) => void;
   /** Fired when an item enters or leaves the viewport (FlashList viewability). */
-  onItemVisibilityChange?: (
-    item: T,
-    index: number,
-    isVisible: boolean,
-  ) => void;
+  onItemVisibilityChange?: (item: T, index: number, isVisible: boolean) => void;
   /**
    * How far (px) beyond the viewport cells are pre-rendered. Larger values
    * hide blank gaps during fast flings at the cost of more mounted cells.
@@ -86,7 +82,9 @@ export interface KPLargeListProps<T> {
   >;
 }
 
-export type KPImageSource = number | {uri: string; headers?: Record<string, string>};
+export type KPImageSource =
+  | number
+  | {uri: string; headers?: Record<string, string>};
 export type KPResizeMode = 'cover' | 'contain' | 'stretch' | 'center';
 
 export interface KPImageProps {

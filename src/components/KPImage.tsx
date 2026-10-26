@@ -39,8 +39,11 @@ function KPImageBase({
     key,
     status: 'loading',
   });
-  const status: Status =
-    !key ? 'error' : state.key === key ? state.status : 'loading';
+  const status: Status = !key
+    ? 'error'
+    : state.key === key
+    ? state.status
+    : 'loading';
 
   const handleLoad = useCallback(
     (size: {width: number; height: number}) => {
@@ -60,7 +63,8 @@ function KPImageBase({
   return (
     <View
       testID={testID}
-      style={[styles.container, aspectRatio ? {aspectRatio} : null, style]}>
+      style={[styles.container, aspectRatio ? {aspectRatio} : null, style]}
+    >
       {key && status !== 'error' && source != null ? (
         <FastImageAdapter
           testID={testID ? `${testID}-image` : undefined}
@@ -81,7 +85,8 @@ function KPImageBase({
       {status === 'error' ? (
         <View
           testID={testID ? `${testID}-fallback` : undefined}
-          style={StyleSheet.absoluteFill}>
+          style={StyleSheet.absoluteFill}
+        >
           {fallback}
         </View>
       ) : null}

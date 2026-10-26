@@ -43,12 +43,15 @@ function KPListItemBase<T>({
 
   return (
     <View style={getCellPadding(index, numColumns, columnGap, rowGap)}>
-      <View style={itemAspectRatio ? {aspectRatio: itemAspectRatio} : undefined}>
+      <View
+        style={itemAspectRatio ? {aspectRatio: itemAspectRatio} : undefined}
+      >
         {onItemPress ? (
           <Pressable
             accessibilityRole="button"
             onPress={handlePress}
-            style={itemAspectRatio ? styles.fill : undefined}>
+            style={itemAspectRatio ? styles.fill : undefined}
+          >
             {content}
           </Pressable>
         ) : (

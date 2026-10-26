@@ -11,7 +11,10 @@ export function getItemWidth(
   if (containerWidth <= 0) {
     return 0;
   }
-  return Math.max(0, (containerWidth - (numColumns - 1) * columnGap) / numColumns);
+  return Math.max(
+    0,
+    (containerWidth - (numColumns - 1) * columnGap) / numColumns,
+  );
 }
 
 export function getColumnIndex(index: number, numColumns: number): number {

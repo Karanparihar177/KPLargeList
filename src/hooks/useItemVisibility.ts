@@ -5,7 +5,9 @@ type ViewableHandler<E> = NonNullable<
   FlashListProps<E>['onViewableItemsChanged']
 >;
 
-const VIEWABILITY_CONFIG: NonNullable<FlashListProps<unknown>['viewabilityConfig']> = {
+const VIEWABILITY_CONFIG: NonNullable<
+  FlashListProps<unknown>['viewabilityConfig']
+> = {
   // Any visible pixel counts, so media can start before an item is fully on screen.
   itemVisiblePercentThreshold: 1,
 };

@@ -1,10 +1,10 @@
-import React, {useCallback, useMemo, useState} from 'react';
+import React, {useCallback, useMemo, useRef, useState} from 'react';
 import {StyleSheet} from 'react-native';
 import type {LayoutChangeEvent} from 'react-native';
 import {FlashList} from '@shopify/flash-list';
 import {useItemVisibility} from '../hooks/useItemVisibility';
-import type {KPItemLayout, KPLargeListProps} from '../types';
-import {getColumnIndex, getItemWidth, sanitizeColumns} from '../utils/layout';
+import type {KPLargeListProps, KPRenderItem} from '../types';
+import {sanitizeColumns} from '../utils/layout';
 import {KPListItem} from './KPListItem';
 import {KPSkeleton} from './KPSkeleton';
 
@@ -56,14 +56,15 @@ export function KPLargeList<T>({
   // Measured container width, not the screen width, so nested layouts and
   // rotation produce the right item sizes.
   const [containerWidth, setContainerWidth] = useState(0);
-  const onLayout = useCallback(
-    (e: LayoutChangeEvent) => {
-      const next = e.nativeEvent.layout.width;
-      setContainerWidth(prev => (Math.abs(prev - next) < 0.5 ? prev : next));
-      listProps?.onLayout?.(e);
-    },
-    [listProps],
-  );
+  // Read through a ref so an inline `listProps` object from the parent does not
+  // recreate `onLayout` on every render.
+  const listOnLayoutRef = useRef(listProps?.onLayout);
+  listOnLayoutRef.current = listProps?.onLayout;
+  const onLayout = useCallback((e: LayoutChangeEvent) => {
+    const next = e.nativeEvent.layout.width;
+    setContainerWidth(prev => (Math.abs(prev - next) < 0.5 ? prev : next));
+    listOnLayoutRef.current?.(e);
+  }, []);
 
   const skeletons = useMemo<SkeletonEntry[]>(
     () =>
@@ -73,17 +74,26 @@ export function KPLargeList<T>({
     [skeletonCount, numColumns],
   );
 
+  // Stable across renders so memoized cells are not re-rendered for nothing.
+  const renderSkeletonCell = useCallback<KPRenderItem<SkeletonEntry>>(
+    (_entry, index, layout) =>
+      renderSkeleton ? (
+        renderSkeleton(index, layout)
+      ) : (
+        <KPSkeleton
+          aspectRatio={itemAspectRatio ?? 1}
+          style={itemAspectRatio ? styles.fillHeight : undefined}
+        />
+      ),
+    [renderSkeleton, itemAspectRatio],
+  );
+
   const hasError = error != null && error !== false && data.length === 0;
   const entries: readonly Entry<T>[] = loading ? skeletons : data;
 
   const renderEntry = useCallback(
     ({item, index}: {item: Entry<T>; index: number}) => {
       if (isSkeleton(item)) {
-        const layout: KPItemLayout = {
-          width: getItemWidth(containerWidth, numColumns, columnGap),
-          columnIndex: getColumnIndex(index, numColumns),
-          numColumns,
-        };
         return (
           <KPListItem<SkeletonEntry>
             item={item}
@@ -93,16 +103,7 @@ export function KPLargeList<T>({
             rowGap={rowGap}
             containerWidth={containerWidth}
             itemAspectRatio={itemAspectRatio}
-            renderItem={() =>
-              renderSkeleton ? (
-                renderSkeleton(index, layout)
-              ) : (
-                <KPSkeleton
-                  aspectRatio={itemAspectRatio ?? 1}
-                  style={itemAspectRatio ? styles.fillHeight : undefined}
-                />
-              )
-            }
+            renderItem={renderSkeletonCell}
           />
         );
       }
@@ -127,7 +128,7 @@ export function KPLargeList<T>({
       rowGap,
       itemAspectRatio,
       renderItem,
-      renderSkeleton,
+      renderSkeletonCell,
       onItemPress,
     ],
   );

@@ -1,0 +1,14 @@
+# Development-only files. Excluded from installs, so consumers get src, lib,
+# package.json, README.md and CHANGELOG.md.
+example/
+tests/
+.yarn/
+.eslintrc.js
+.prettierrc.js
+.ruby-version
+.yarnrc.yml
+babel.config.js
+jest.config.js
+tsconfig.json
+tsconfig.build.json
+yarn.lock

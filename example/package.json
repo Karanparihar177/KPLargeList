@@ -11,7 +11,7 @@
   "dependencies": {
     "@babel/runtime": "^7.25.0",
     "@shopify/flash-list": "^2.3.3",
-    "kp-large-list": "workspace:*",
+    "kp-large-list": "link:..",
     "react": "19.3.0",
     "react-native": "0.88.0",
     "react-native-fast-image": "10.8.5",

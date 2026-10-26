@@ -21,7 +21,7 @@ DerivedData
 *.ipa
 *.xcuserstate
 **/.xcode.env.local
-example/ios/Podfile.lock
+Podfile.lock
 
 # Android/IntelliJ
 #
@@ -75,5 +75,8 @@ yarn.lock
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
-lib/
+# lib/ is committed on purpose: git installs run no build step (see README).
 .metro*.log
+
+# Yarn install state inside the example app
+example/.yarn/

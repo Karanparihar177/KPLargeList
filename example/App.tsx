@@ -10,7 +10,10 @@ import {
   View,
   useColorScheme,
 } from 'react-native';
-import {SafeAreaProvider, useSafeAreaInsets} from 'react-native-safe-area-context';
+import {
+  SafeAreaProvider,
+  useSafeAreaInsets,
+} from 'react-native-safe-area-context';
 import {KPImage, KPLargeList} from 'kp-large-list';
 import type {KPRenderItem} from 'kp-large-list';
 import {makeItems} from './demo/data';
@@ -42,7 +45,15 @@ function Fallback() {
   );
 }
 
-function Card({item, ratio, compact}: {item: DemoItem; ratio: number; compact: boolean}) {
+function Card({
+  item,
+  ratio,
+  compact,
+}: {
+  item: DemoItem;
+  ratio: number;
+  compact: boolean;
+}) {
   return (
     <View style={styles.card}>
       <KPImage
@@ -113,13 +124,20 @@ function Demo() {
 
   return (
     <View style={[styles.screen, {paddingTop: insets.top}]}>
-      <ScrollView horizontal style={styles.tabs} contentContainerStyle={styles.tabsContent}>
+      <ScrollView
+        horizontal
+        style={styles.tabs}
+        contentContainerStyle={styles.tabsContent}
+      >
         {SCENARIOS.map((sc, i) => (
           <Pressable
             key={sc.label}
             onPress={() => setScenarioIdx(i)}
-            style={[styles.tab, i === scenarioIdx && styles.tabOn]}>
-            <Text style={i === scenarioIdx ? styles.tabTextOn : styles.tabText}>{sc.label}</Text>
+            style={[styles.tab, i === scenarioIdx && styles.tabOn]}
+          >
+            <Text style={i === scenarioIdx ? styles.tabTextOn : styles.tabText}>
+              {sc.label}
+            </Text>
           </Pressable>
         ))}
       </ScrollView>
@@ -148,7 +166,9 @@ function Demo() {
         data={data}
         loading={loading}
         error={failed ? new Error('Could not load items') : undefined}
-        renderError={e => <Text style={styles.msg}>{(e as Error).message}</Text>}
+        renderError={e => (
+          <Text style={styles.msg}>{(e as Error).message}</Text>
+        )}
         ListEmptyComponent={<Text style={styles.msg}>Nothing here yet</Text>}
         numColumns={s.columns}
         drawDistance={drawFar ? 1200 : 250}
@@ -161,6 +181,9 @@ function Demo() {
         contentContainerStyle={styles.content}
         skeletonCount={s.columns * 3}
         itemAspectRatio={undefined}
+        listProps={{
+          decelerationRate: 'fast',
+        }}
       />
     </View>
   );
@@ -180,22 +203,49 @@ const styles = StyleSheet.create({
   screen: {flex: 1, backgroundColor: '#fff'},
   tabs: {flexGrow: 0},
   tabsContent: {padding: 8, gap: 8},
-  tab: {paddingHorizontal: 12, paddingVertical: 8, borderRadius: 16, backgroundColor: '#eef0f3'},
+  tab: {
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    borderRadius: 16,
+    backgroundColor: '#eef0f3',
+  },
   tabOn: {backgroundColor: '#1f6feb'},
   tabText: {color: '#24292f'},
   tabTextOn: {color: '#fff', fontWeight: '600'},
   toggles: {flexDirection: 'row', flexWrap: 'wrap', paddingHorizontal: 8},
   toggle: {flexDirection: 'row', alignItems: 'center', gap: 4, marginRight: 8},
-  status: {paddingHorizontal: 12, paddingVertical: 4, color: '#57606a', fontSize: 12},
+  status: {
+    paddingHorizontal: 12,
+    paddingVertical: 4,
+    color: '#57606a',
+    fontSize: 12,
+  },
   list: {flex: 1},
   content: {padding: 12},
-  card: {backgroundColor: '#fff', borderRadius: 8, overflow: 'hidden', borderWidth: StyleSheet.hairlineWidth, borderColor: '#d0d7de'},
-  title: {fontSize: 12, fontWeight: '600', color: '#24292f', padding: 6, paddingBottom: 0},
+  card: {
+    backgroundColor: '#fff',
+    borderRadius: 8,
+    overflow: 'hidden',
+    borderWidth: StyleSheet.hairlineWidth,
+    borderColor: '#d0d7de',
+  },
+  title: {
+    fontSize: 12,
+    fontWeight: '600',
+    color: '#24292f',
+    padding: 6,
+    paddingBottom: 0,
+  },
   sub: {fontSize: 11, color: '#57606a', padding: 6},
   row: {flexDirection: 'row', alignItems: 'center', gap: 12},
   thumb: {width: 72, borderRadius: 8},
   rowText: {flex: 1},
-  fallback: {flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#ebedf0'},
+  fallback: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#ebedf0',
+  },
   fallbackImg: {width: '50%', height: '50%', resizeMode: 'contain'},
   msg: {textAlign: 'center', padding: 32, color: '#57606a'},
 });

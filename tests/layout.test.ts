@@ -1,12 +1,19 @@
-import {getCellPadding, getItemWidth, sanitizeColumns} from '../src/utils/layout';
+import {
+  getCellPadding,
+  getItemWidth,
+  sanitizeColumns,
+} from '../src/utils/layout';
 
 describe('layout', () => {
-  it.each([1, 2, 3, 4])('item widths + gaps fill the container for %d columns', n => {
-    const W = 400;
-    const g = 12;
-    const w = getItemWidth(W, n, g);
-    expect(w * n + g * (n - 1)).toBeCloseTo(W);
-  });
+  it.each([1, 2, 3, 4])(
+    'item widths + gaps fill the container for %d columns',
+    n => {
+      const W = 400;
+      const g = 12;
+      const w = getItemWidth(W, n, g);
+      expect(w * n + g * (n - 1)).toBeCloseTo(W);
+    },
+  );
 
   it('uses the supplied container width, not a fixed screen width', () => {
     expect(getItemWidth(300, 3, 0)).toBe(100);

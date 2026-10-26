@@ -15,11 +15,11 @@ A generic, high-performance list and grid for React Native. `KPLargeList` is bui
 ## Install
 
 ```sh
-yarn add kp-large-list @shopify/flash-list react-native-fast-image
+yarn add git+https://github.com/Karanparihar177/KPLargeList.git#v0.1.0 @shopify/flash-list react-native-fast-image
 cd ios && bundle exec pod install
 ```
 
-Use `yarn add git+ssh://git@github.com/<org>/kp-large-list.git#v0.1.0` until the package is on npm.
+The package is installed from its GitHub tag. The built `lib/` folder is committed, so the install needs no build step. To pin a newer release, change `#v0.1.0` to the new tag.
 
 Both native dependencies autolink. The image backend lives in one file, `src/adapters/FastImageAdapter.tsx`, so it can be replaced without changing the public API.
 

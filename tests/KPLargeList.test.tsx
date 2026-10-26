@@ -13,7 +13,10 @@ interface User {
   login: string;
 }
 
-const videos: Video[] = Array.from({length: 6}, (_, i) => ({id: `v${i}`, duration: i}));
+const videos: Video[] = Array.from({length: 6}, (_, i) => ({
+  id: `v${i}`,
+  duration: i,
+}));
 
 const mounted: ReactTestRenderer.ReactTestRenderer[] = [];
 afterEach(() => {
@@ -30,7 +33,9 @@ async function render(el: React.ReactElement) {
   return r;
 }
 const skeletons = (r: ReactTestRenderer.ReactTestRenderer) =>
-  r.root.findAll(n => n.props.testID === 'kp-skeleton' && typeof n.type === 'string');
+  r.root.findAll(
+    n => n.props.testID === 'kp-skeleton' && typeof n.type === 'string',
+  );
 const texts = (r: ReactTestRenderer.ReactTestRenderer) =>
   r.root.findAllByType(Text).map(t => t.props.children);
 
@@ -39,7 +44,11 @@ describe('KPLargeList', () => {
 
   it('renders items via the custom renderer and generic data types', async () => {
     const r = await render(
-      <KPLargeList data={videos} keyExtractor={v => v.id} renderItem={renderVideo} />,
+      <KPLargeList
+        data={videos}
+        keyExtractor={v => v.id}
+        renderItem={renderVideo}
+      />,
     );
     expect(texts(r)).toEqual(expect.arrayContaining(['v0', 'v1']));
   });
@@ -59,32 +68,43 @@ describe('KPLargeList', () => {
 
   it('passes stable keys from keyExtractor', async () => {
     const keyExtractor = jest.fn((v: Video, _i: number) => v.id);
-    await render(<KPLargeList data={videos} keyExtractor={keyExtractor} renderItem={renderVideo} />);
-    expect(keyExtractor).toHaveBeenCalledWith(videos[0], 0);
-    expect(new Set(videos.map(v => keyExtractor(v, 0))).size).toBe(videos.length);
-  });
-
-  it.each([1, 2, 3, 4])('lays out %d column(s) and reports column index', async n => {
-    const cols: number[] = [];
     await render(
       <KPLargeList
         data={videos}
-        numColumns={n}
-        columnGap={8}
-        rowGap={8}
-        keyExtractor={v => v.id}
-        renderItem={(v, i, layout) => {
-          cols[i] = layout.columnIndex;
-          expect(layout.numColumns).toBe(n);
-          return <Text>{v.id}</Text>;
-        }}
+        keyExtractor={keyExtractor}
+        renderItem={renderVideo}
       />,
     );
-    expect(cols[0]).toBe(0);
-    if (n > 1) {
-      expect(cols[1]).toBe(1);
-    }
+    expect(keyExtractor).toHaveBeenCalledWith(videos[0], 0);
+    expect(new Set(videos.map(v => keyExtractor(v, 0))).size).toBe(
+      videos.length,
+    );
   });
+
+  it.each([1, 2, 3, 4])(
+    'lays out %d column(s) and reports column index',
+    async n => {
+      const cols: number[] = [];
+      await render(
+        <KPLargeList
+          data={videos}
+          numColumns={n}
+          columnGap={8}
+          rowGap={8}
+          keyExtractor={v => v.id}
+          renderItem={(v, i, layout) => {
+            cols[i] = layout.columnIndex;
+            expect(layout.numColumns).toBe(n);
+            return <Text>{v.id}</Text>;
+          }}
+        />,
+      );
+      expect(cols[0]).toBe(0);
+      if (n > 1) {
+        expect(cols[1]).toBe(1);
+      }
+    },
+  );
 
   it('fires onItemPress with item and index', async () => {
     const onItemPress = jest.fn();
@@ -97,7 +117,9 @@ describe('KPLargeList', () => {
       />,
     );
     const pressables = r.root.findAll(
-      n => n.props.accessibilityRole === 'button' && typeof n.props.onPress === 'function',
+      n =>
+        n.props.accessibilityRole === 'button' &&
+        typeof n.props.onPress === 'function',
     );
     expect(pressables.length).toBeGreaterThan(1);
     const target = pressables[1];
@@ -118,7 +140,12 @@ describe('KPLargeList', () => {
   });
 
   it('shows the error state only when there is no data', async () => {
-    const props = {keyExtractor: (v: Video) => v.id, renderItem: renderVideo, error: new Error('boom'), renderError: (e: unknown) => <Text>{(e as Error).message}</Text>};
+    const props = {
+      keyExtractor: (v: Video) => v.id,
+      renderItem: renderVideo,
+      error: new Error('boom'),
+      renderError: (e: unknown) => <Text>{(e as Error).message}</Text>,
+    };
     const empty = await render(<KPLargeList data={[]} {...props} />);
     expect(texts(empty)).toEqual(['boom']);
     const withData = await render(<KPLargeList data={videos} {...props} />);
@@ -127,12 +154,24 @@ describe('KPLargeList', () => {
 
   it('renders skeletons instead of data while loading, then the data', async () => {
     const r = await render(
-      <KPLargeList data={videos} loading skeletonCount={4} keyExtractor={v => v.id} renderItem={renderVideo} />,
+      <KPLargeList
+        data={videos}
+        loading
+        skeletonCount={4}
+        keyExtractor={v => v.id}
+        renderItem={renderVideo}
+      />,
     );
     expect(skeletons(r).length).toBeGreaterThan(0);
     expect(texts(r)).not.toContain('v0');
     await act(async () => {
-      r.update(<KPLargeList data={videos} keyExtractor={v => v.id} renderItem={renderVideo} />);
+      r.update(
+        <KPLargeList
+          data={videos}
+          keyExtractor={v => v.id}
+          renderItem={renderVideo}
+        />,
+      );
     });
     expect(skeletons(r).length).toBe(0);
     expect(texts(r)).toContain('v0');
@@ -153,9 +192,21 @@ describe('KPLargeList', () => {
   });
 
   it('re-renders with new data (changing datasets)', async () => {
-    const r = await render(<KPLargeList data={videos} keyExtractor={v => v.id} renderItem={renderVideo} />);
+    const r = await render(
+      <KPLargeList
+        data={videos}
+        keyExtractor={v => v.id}
+        renderItem={renderVideo}
+      />,
+    );
     await act(async () => {
-      r.update(<KPLargeList data={[{id: 'x', duration: 1}]} keyExtractor={v => v.id} renderItem={renderVideo} />);
+      r.update(
+        <KPLargeList
+          data={[{id: 'x', duration: 1}]}
+          keyExtractor={v => v.id}
+          renderItem={renderVideo}
+        />,
+      );
     });
     expect(texts(r)).toEqual(['x']);
   });
@@ -167,10 +218,23 @@ describe('KPLargeList', () => {
       return <Text>{v.id}</Text>;
     };
     const keyExtractor = (v: Video) => v.id;
-    const r = await render(<KPLargeList data={videos} keyExtractor={keyExtractor} renderItem={renderItem} />);
+    const r = await render(
+      <KPLargeList
+        data={videos}
+        keyExtractor={keyExtractor}
+        renderItem={renderItem}
+      />,
+    );
     const before = renders.mock.calls.length;
     await act(async () => {
-      r.update(<KPLargeList data={videos} keyExtractor={keyExtractor} renderItem={renderItem} testID="x" />);
+      r.update(
+        <KPLargeList
+          data={videos}
+          keyExtractor={keyExtractor}
+          renderItem={renderItem}
+          testID="x"
+        />,
+      );
     });
     expect(renders.mock.calls.length).toBe(before);
   });
